@@ -1,7 +1,6 @@
 import { World } from "@rbxts/jecs";
 import { Components, Shared, WorldHooks } from "./common";
 import { Entity } from "@rbxts/jecs";
-import { MaskingController } from "./masking";
 
 type TrackInfo = {
     entities: Map<Entity, boolean>;
@@ -19,19 +18,6 @@ type Storage = Map<Entity, EntityStorage>;
 export declare class Server {
     world: World;
     inited?: boolean;
-
-    shared: Shared;
-    components: Components;
-    hooks: WorldHooks;
-    alive_tracked: Map<Entity, boolean>;
-
-    track_info: TrackInfo;
-    additions: Map<Entity, boolean>;
-    custom_ids: Map<Entity, Entity>;
-    storage: Storage;
-    hooked: Array<() => void>;
-    masking: MaskingController;
-    connections: Array<RBXScriptConnection>;
 
     static create(world: World, components: Components): Server;
 
